@@ -28,9 +28,9 @@ function App() {
             <span>Joke Generator</span>
             <button onClick={getjoke} style={{margin:'10%',borderRadius:'10px',width:'50%',height:'50%'}}>Get Joke</button>
           </div>
-          <div >
+          {joke &&<div style={{backgroundColor:'grey',padding:'10%',borderRadius:'10px',border:'2px solid black',margin:'10%'}}>
             <span style={{fontSize:'50%'}}>{joke}</span>
-          </div>
+          </div>}
         </div>
       </div>
     </div>
