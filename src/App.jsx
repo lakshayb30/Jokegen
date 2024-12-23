@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
-const JokeAPI = window.JokeAPI || require('sv443-joke-api');
+const JokeAPI = window.JokeAPI || require('sv443-joke-api/dark');
 
 function App() {
   const [count, setCount] = useState(0)
@@ -11,7 +9,7 @@ function App() {
 
   const getjoke = () => {
     JokeAPI.getJokes({
-      jokeType: "single",
+      jokeType: "single"
     })
       .then((r) => r.json())
       .then((data) => {
@@ -23,14 +21,12 @@ function App() {
   return (
     <div id='main'>
       <div style={{display:'flex',justifyContent:'center',flexDirection:'row'}}>
-        <div style={{display:'flex',flexDirection:'column',fontSize:'300%',alignItems:'center',margin:'10%',color:'white'}}>
-          <div style={{display:'flex',flexDirection:'row',color:'black',fontSize:'100%'}}>
-            <span>Joke Generator</span>
-            <button onClick={getjoke} style={{margin:'10%',borderRadius:'10px',width:'50%',height:'50%'}}>Get Joke</button>
+        <div style={{display:'flex',flexDirection:'column',fontSize:'300%',alignItems:'center',margin:'5%',color:'white'}}>
+          <div style={{display:'flex',color:'black',fontSize:'80%'}}>
+            <h4 id='title'>JOKE GENERATOR</h4>
           </div>
-          {joke &&<div style={{backgroundColor:'grey',padding:'10%',borderRadius:'10px',border:'2px solid black',margin:'10%'}}>
-            <span style={{fontSize:'50%'}}>{joke}</span>
-          </div>}
+          <button onClick={getjoke} id='get_joke'>Click Me !!!</button>
+          {joke &&<div id = "joke_box">{joke}</div>}
         </div>
       </div>
     </div>
